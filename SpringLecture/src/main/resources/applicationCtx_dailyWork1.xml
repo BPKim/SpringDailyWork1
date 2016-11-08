@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="dao" class="dailyWork1.BookDAO"/>
+	<bean id="bookService" class="dailyWork1.BookService">
+		<!-- 첫번째 생성자의 인자 예를 들어서 bookservice(dao a, string b)에서 a를 의미 -->
+		<constructor-arg> 
+			<ref bean="dao"/>	
+		</constructor-arg>
+		
+		
+		<!-- keyword라는 객체에 자바가 들어가서 자바가 검색된다. -->
+		<property name="keyword">
+			<value>2</value> 
+		</property>
+	</bean>
+</beans>
